@@ -1,0 +1,10 @@
+version: '2'
+services:
+    jobtracker: 
+        build: ./
+        volumes: 
+            - ./config/application.yml:/data/application.yml:ro
+        network_mode: 'host'
+        entrypoint: 
+            - /entrypoint.sh
+            - --spring.config.location=/data/application.yml   

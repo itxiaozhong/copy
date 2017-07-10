@@ -1,0 +1,13 @@
+app:
+    image: kennylee26/pureftpd
+    container_name: "pureftpd"
+    net: "host" # none but net=host, windows user can be work.
+#    ports:
+#        - "21:21"
+    # Please create these folders before.
+    volumes:
+        - /home/data/ftp/files:/home/ftpusers
+        - /home/data/ftp/pure-ftpd:/etc/pure-ftpd
+    restart: always
+    environment:
+        - TZ=Asia/Shanghai
